@@ -1,0 +1,84 @@
+{
+  "name": "@jonz94/capacitor-image-picker",
+  "version": "0.0.1",
+  "description": "image picker",
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native"
+  ],
+  "bugs": {
+    "url": "https://github.com/jonz94/capacitor-image-picker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonz94/capacitor-image-picker.git"
+  },
+  "license": "0BSD",
+  "author": {
+    "name": "jonz94",
+    "email": "jody16888@gmail.com"
+  },
+  "main": "dist/plugin.cjs.js",
+  "unpkg": "dist/plugin.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "android/src/main/",
+    "android/build.gradle",
+    "dist/",
+    "ios/Plugin/",
+    "Jonz94CapacitorImagePicker.podspec"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
+    "clean": "rimraf ./dist",
+    "docgen": "docgen --api ImagePickerPlugin --output-readme README.md --output-json dist/docs.json",
+    "eslint": "eslint . --ext ts",
+    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
+    "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
+    "prepublishOnly": "npm run build",
+    "prettier": "prettier .",
+    "release": "commit-and-tag-version",
+    "swiftlint": "node-swiftlint",
+    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "verify:android": "cd android && ./gradlew clean build test && cd ..",
+    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin -destination generic/platform=iOS && cd ..",
+    "verify:web": "npm run build",
+    "watch": "tsc --watch"
+  },
+  "prettier": "@ionic/prettier-config",
+  "eslintConfig": {
+    "extends": "@ionic/eslint-config/recommended"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^4.0.0",
+    "@capacitor/core": "^4.0.0",
+    "@capacitor/docgen": "^0.2.0",
+    "@capacitor/ios": "^4.0.0",
+    "@ionic/eslint-config": "^0.3.0",
+    "@ionic/prettier-config": "^2.0.0",
+    "@ionic/swiftlint-config": "^1.1.2",
+    "commit-and-tag-version": "^10.1.0",
+    "eslint": "^7.32.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-java": "^1.6.2",
+    "prettier-plugin-packagejson": "^2.3.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.1",
+    "swiftlint": "^1.0.1",
+    "typescript": "~4.1.6"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^4.0.0"
+  },
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  },
+  "swiftlint": "@ionic/swiftlint-config"
+}
