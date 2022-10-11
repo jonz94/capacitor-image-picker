@@ -1,5 +1,6 @@
 package dev.jonz94.capacitorjs.plugins.imagepicker;
 
+import android.net.Uri;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Logger;
 import com.getcapacitor.Plugin;
@@ -23,11 +24,24 @@ public class ImagePickerPlugin extends Plugin {
                 Logger.info("user cancelled");
             });
 
-        builder.start(result -> {
-            Logger.info(result.toString());
-            JSObject ret = new JSObject();
-            ret.put("value", result);
-            call.resolve(ret);
+        builder.showCameraTile(false);
+
+        builder.start(uri -> {
+            JSObject image = new JSObject();
+            image.put("path", uri.toString());
+            image.put("mimeType", getMimeTypeFromUri(uri));
+
+            JSObject result = new JSObject();
+            result.put("image", image);
+
+            call.resolve(result);
         });
+    }
+
+    private String getMimeTypeFromUri(Uri uri) {
+        if (uri == null) {
+            return "";
+        }
+        return bridge.getContext().getContentResolver().getType(uri);
     }
 }

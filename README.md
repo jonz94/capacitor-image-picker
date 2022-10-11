@@ -14,6 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`present()`](#present)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -23,11 +24,29 @@ npx cap sync
 ### present()
 
 ```typescript
-present() => Promise<{ value: string; }>
+present() => Promise<Result>
 ```
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#result">Result</a>&gt;</code>
 
 --------------------
+
+
+### Interfaces
+
+
+#### Result
+
+| Prop        | Type                                    |
+| ----------- | --------------------------------------- |
+| **`image`** | <code><a href="#image">Image</a></code> |
+
+
+#### Image
+
+| Prop           | Type                | Description                 |
+| -------------- | ------------------- | --------------------------- |
+| **`path`**     | <code>string</code> | The file path of the image. |
+| **`mimeType`** | <code>string</code> | The mime type of the image. |
 
 </docgen-api>

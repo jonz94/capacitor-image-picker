@@ -1,5 +1,6 @@
 import Foundation
 import Capacitor
+import MobileCoreServices
 import YPImagePicker
 
 /**
@@ -31,9 +32,14 @@ public class ImagePickerPlugin: CAPPlugin {
                         return
                     }
 
-                    call.resolve([
-                        "value": url.absoluteString
-                    ])
+                    var image = JSObject()
+                    image["path"] = url.absoluteString
+                    image["mimeType"] = self.getMimeTypeFromUrl(url)
+
+                    var result = JSObject()
+                    result["image"] = image
+
+                    call.resolve(result)
                 }
 
                 picker.dismiss(animated: true, completion: nil)
@@ -44,7 +50,7 @@ public class ImagePickerPlugin: CAPPlugin {
     }
 
     /**
-     * Credits: https://github.com/ionic-team/capacitor-plugins/blob/b3a42bb198313066ea502ee94882473247fe0c03/camera/ios/Plugin/CameraPlugin.swift#L518-L527
+     * Credits: https://github.com/ionic-team/capacitor-plugins/blob/%40capacitor/camera%404.1.2/camera/ios/Plugin/CameraPlugin.swift#L518-L527
      */
     private func saveTemporaryImage(_ data: Data) throws -> URL {
         var url: URL
@@ -56,5 +62,19 @@ public class ImagePickerPlugin: CAPPlugin {
         try data.write(to: url, options: .atomic)
 
         return url
+    }
+
+    /**
+     * Credits: https://github.com/capawesome-team/capacitor-file-picker/blob/v0.5.1/ios/Plugin/FilePicker.swift#L37-L46
+     */
+    private func getMimeTypeFromUrl(_ url: URL) -> String {
+        let fileExtension = url.pathExtension as CFString
+        guard let extUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, nil)?.takeUnretainedValue() else {
+            return ""
+        }
+        guard let mimeUTI = UTTypeCopyPreferredTagWithClass(extUTI, kUTTagClassMIMEType) else {
+            return ""
+        }
+        return mimeUTI.takeRetainedValue() as String
     }
 }
