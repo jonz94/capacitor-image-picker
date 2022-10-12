@@ -12,13 +12,18 @@ public class ImagePickerPlugin: CAPPlugin {
     private var imageCounter = 0
 
     @objc func present(_ call: CAPPluginCall) {
+        let limit = call.getInt("limit") ?? 1
+        let surpassLimitMessage = call.getString("surpassLimitMessage", "You can only select %d image(s).")
+
         var config = YPImagePickerConfiguration()
 
         config.showsPhotoFilters = false
         config.onlySquareImagesFromCamera = false
         config.screens = [.library]
         config.library.minNumberOfItems = 1
-        config.library.maxNumberOfItems = 1
+        config.library.maxNumberOfItems = limit
+        config.library.skipSelectionsGallery = true
+        config.wordings.warningMaxItemsLimit = surpassLimitMessage
 
         DispatchQueue.main.async {
             let picker = YPImagePicker(configuration: config)
@@ -26,20 +31,8 @@ public class ImagePickerPlugin: CAPPlugin {
             picker.didFinishPicking { items, cancelled in
                 if cancelled {
                     CAPLog.print("User Cancelled")
-                } else if let photo = items.singlePhoto?.image.jpegData(compressionQuality: 1) {
-                    guard let url = try? self.saveTemporaryImage(photo) else {
-                        call.reject("Unable to get portable path to file")
-                        return
-                    }
-
-                    var image = JSObject()
-                    image["path"] = url.absoluteString
-                    image["mimeType"] = self.getMimeTypeFromUrl(url)
-
-                    var result = JSObject()
-                    result["image"] = image
-
-                    call.resolve(result)
+                } else if items.count > 0 {
+                    self.handleResult(items, call)
                 }
 
                 picker.dismiss(animated: true, completion: nil)
@@ -47,6 +40,31 @@ public class ImagePickerPlugin: CAPPlugin {
 
             self.bridge?.viewController?.present(picker, animated: true, completion: nil)
         }
+    }
+
+    private func handleResult(_ items: [YPMediaItem], _ call: CAPPluginCall) {
+        var images = JSArray()
+
+        for item in items {
+            switch item {
+            case .photo(let photo):
+                if let data = photo.image.jpegData(compressionQuality: 1),
+                   let url = try? self.saveTemporaryImage(data) {
+                    var image = JSObject()
+                    image["path"] = url.absoluteString
+                    image["mimeType"] = self.getMimeTypeFromUrl(url)
+                    images.append(image)
+                }
+
+                break
+            default:
+                break
+            }
+        }
+
+        var result = JSObject()
+        result["images"] = images
+        call.resolve(result)
     }
 
     /**
