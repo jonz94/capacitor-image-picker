@@ -22,6 +22,12 @@ export interface Image {
   path: string;
 
   /**
+   * webPath returns a path that can be used to set the src attribute of an image for efficient
+   * loading and rendering.
+   */
+  webPath: string;
+
+  /**
    * The mime type of the image.
    */
   mimeType: string;

@@ -48,10 +48,11 @@ present(options?: presentOptions | undefined) => Promise<Images>
 
 #### Image
 
-| Prop           | Type                | Description                 |
-| -------------- | ------------------- | --------------------------- |
-| **`path`**     | <code>string</code> | The file path of the image. |
-| **`mimeType`** | <code>string</code> | The mime type of the image. |
+| Prop           | Type                | Description                                                                                                       |
+| -------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **`path`**     | <code>string</code> | The file path of the image.                                                                                       |
+| **`webPath`**  | <code>string</code> | webPath returns a path that can be used to set the src attribute of an image for efficient loading and rendering. |
+| **`mimeType`** | <code>string</code> | The mime type of the image.                                                                                       |
 
 
 #### presentOptions

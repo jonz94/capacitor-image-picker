@@ -22,6 +22,8 @@ public class ImagePickerPlugin: CAPPlugin {
         config.screens = [.library]
         config.library.minNumberOfItems = 1
         config.library.maxNumberOfItems = limit
+        config.library.defaultMultipleSelection = limit > 1
+        config.library.preSelectItemOnMultipleSelection = false
         config.library.skipSelectionsGallery = true
         config.wordings.warningMaxItemsLimit = surpassLimitMessage
 
@@ -49,10 +51,12 @@ public class ImagePickerPlugin: CAPPlugin {
             switch item {
             case .photo(let photo):
                 if let data = photo.image.jpegData(compressionQuality: 1),
-                   let url = try? self.saveTemporaryImage(data) {
+                   let fileURL = try? self.saveTemporaryImage(data),
+                   let webURL = bridge?.portablePath(fromLocalURL: fileURL) {
                     var image = JSObject()
-                    image["path"] = url.absoluteString
-                    image["mimeType"] = self.getMimeTypeFromUrl(url)
+                    image["path"] = fileURL.absoluteString
+                    image["webPath"] = webURL.absoluteString
+                    image["mimeType"] = self.getMimeTypeFromURL(fileURL)
                     images.append(image)
                 }
 
@@ -85,7 +89,7 @@ public class ImagePickerPlugin: CAPPlugin {
     /**
      * Credits: https://github.com/capawesome-team/capacitor-file-picker/blob/v0.5.1/ios/Plugin/FilePicker.swift#L37-L46
      */
-    private func getMimeTypeFromUrl(_ url: URL) -> String {
+    private func getMimeTypeFromURL(_ url: URL) -> String {
         let fileExtension = url.pathExtension as CFString
         guard let extUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, nil)?.takeUnretainedValue() else {
             return ""

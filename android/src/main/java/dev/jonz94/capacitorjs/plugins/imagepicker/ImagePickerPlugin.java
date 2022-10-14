@@ -1,6 +1,7 @@
 package dev.jonz94.capacitorjs.plugins.imagepicker;
 
 import android.net.Uri;
+import com.getcapacitor.FileUtils;
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Logger;
@@ -60,6 +61,7 @@ public class ImagePickerPlugin extends Plugin {
             Uri uri = uris.get(i);
             JSObject image = new JSObject();
             image.put("path", uri.toString());
+            image.put("webPath", FileUtils.getPortablePath(getContext(), bridge.getLocalUrl(), uri));
             image.put("mimeType", getMimeTypeFromUri(uri));
             imageList.add(image);
         }
