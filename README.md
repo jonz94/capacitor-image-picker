@@ -112,7 +112,7 @@ See [LICENSE](https://github.com/jonz94/capacitor-image-picker/blob/main/LICENSE
 
 ## Credits
 
-- [EinfachHans's Advanced ImagePicker Cordova Plugin](https://github.com/EinfachHans/cordova-plugin-advanced-imagepicker) inspires this capacitor plugin.
+- [EinfachHans's Advanced ImagePicker Cordova Plugin](https://github.com/EinfachHans/cordova-plugin-advanced-imagepicker) inspires this Capacitor plugin.
 - [YPImagePicker](https://github.com/Yummypets/YPImagePicker) provides iOS implementation.
 - [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) provides Android implementation.
 - [Official Capacitor Camera Plugin](https://github.com/ionic-team/capacitor-plugins/blob/%40capacitor/camera%404.1.2/camera/ios/Plugin/CameraPlugin.swift#L518-L527) provides `saveTemporaryImage()` implementation on iOS.
