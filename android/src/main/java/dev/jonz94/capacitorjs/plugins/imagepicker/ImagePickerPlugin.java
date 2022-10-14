@@ -31,6 +31,16 @@ public class ImagePickerPlugin extends Plugin {
         }
         surpassLimitMessage = String.format(surpassLimitMessage, limit);
 
+        String titleText = call.getString("titleText");
+        if (titleText == null) {
+            titleText = "Select Image";
+        }
+
+        String doneText = call.getString("doneText");
+        if (doneText == null) {
+            doneText = "Done";
+        }
+
         Builder builder = TedImagePicker
             .with(getContext())
             .errorListener(error -> {
@@ -41,7 +51,8 @@ public class ImagePickerPlugin extends Plugin {
             });
 
         builder.showCameraTile(false);
-        builder.title("title");
+        builder.title(titleText);
+        builder.buttonText(doneText);
         builder.max(limit, surpassLimitMessage);
 
         if (limit == 1) {

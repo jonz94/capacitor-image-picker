@@ -14,6 +14,10 @@ public class ImagePickerPlugin: CAPPlugin {
     @objc func present(_ call: CAPPluginCall) {
         let limit = call.getInt("limit") ?? 1
         let surpassLimitMessage = call.getString("surpassLimitMessage", "You can only select %d image(s).")
+        let libraryTitleText = call.getString("libraryTitleText", "Library")
+        let albumsTitleText = call.getString("albumsTitleText", "Albums")
+        let cancelText = call.getString("cancelText", "Cancel")
+        let doneText = call.getString("doneText", "Done")
 
         var config = YPImagePickerConfiguration()
 
@@ -27,6 +31,10 @@ public class ImagePickerPlugin: CAPPlugin {
         config.library.preSelectItemOnMultipleSelection = false
         config.library.skipSelectionsGallery = true
         config.wordings.warningMaxItemsLimit = surpassLimitMessage
+        config.wordings.libraryTitle = libraryTitleText
+        config.wordings.albumsTitle = albumsTitleText
+        config.wordings.cancel = cancelText
+        config.wordings.next = doneText
 
         DispatchQueue.main.async {
             let picker = YPImagePicker(configuration: config)
