@@ -23,6 +23,7 @@ public class ImagePickerPlugin: CAPPlugin {
         config.library.minNumberOfItems = 1
         config.library.maxNumberOfItems = limit
         config.library.defaultMultipleSelection = limit > 1
+        config.hidesMultipleSelectionButton = true
         config.library.preSelectItemOnMultipleSelection = false
         config.library.skipSelectionsGallery = true
         config.wordings.warningMaxItemsLimit = surpassLimitMessage
