@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://github.com/jonz94/capacitor-image-picker/compare/v1.0.0...v1.1.0) (2022-10-16)
+
+### Features
+
+- **android:** hide selected view ([1f16719](https://github.com/jonz94/capacitor-image-picker/commit/1f167195fdb7c83ee427a6a3306856b996168c6a))
+
 ## 1.0.0 (2022-10-14)
 
 ### Features
