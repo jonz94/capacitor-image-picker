@@ -35,12 +35,27 @@ After modified `ios/App/Podfile`, make sure to run `pod update` command to sync 
 
 ## Android
 
-This plugin uses [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) under the hoood.
+This plugin uses [a forked version](https://github.com/jonz94/TedIamgePicker) of [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) under the hood.
+
+In order to use this plugin, you need to manually modified `android/build.gradle` as following:
+
+```diff
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
++        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+After modified `android/build.gradle`, make sure to run `Sync Project with Gradle Files` in Android Studio.
+
 
 ### Variables
 
 This plugin will use the following project variables (defined in your app's `variables.gradle` file):
-- `$tedImagePickerVersion` version of `io.github.ParkSangGwon:tedimagepicker` (default: `1.3.2`)
+- `$tedImagePickerVersion` version of `com.github.jonz94:TedImagePicker` (default: `1.3.2.1`)
 
 ## API
 
