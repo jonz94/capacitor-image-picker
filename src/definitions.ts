@@ -9,6 +9,7 @@ export interface presentOptions {
    * Note: If this is set to 1, upon selection of a single image.
    *
    * @default 1
+   * @since 1.0.0
    */
   limit?: number;
 
@@ -18,6 +19,7 @@ export interface presentOptions {
    * Note: The message **MUST INCLUDE ONE AND ONLY ONE `%d`** as a placeholder for showing the value of `limit`.
    *
    * @default "You can only select %d image(s)."
+   * @since 1.0.0
    */
   surpassLimitMessage?: string;
 
@@ -25,6 +27,7 @@ export interface presentOptions {
    * Android only: The title of the image picker.
    *
    * @default "Select Image"
+   * @since 1.0.0
    */
   titleText?: string;
 
@@ -32,6 +35,7 @@ export interface presentOptions {
    * iOS only: The title of the library.
    *
    * @default "Library"
+   * @since 1.0.0
    */
   libraryTitleText?: string;
 
@@ -39,6 +43,7 @@ export interface presentOptions {
    * iOS only: The title of the albums.
    *
    * @default "Albums"
+   * @since 1.0.0
    */
   albumsTitleText?: string;
 
@@ -48,6 +53,7 @@ export interface presentOptions {
    * Note: on Android, the cancel button is shown as icon-only back button with no text.
    *
    * @default "Cancel"
+   * @since 1.0.0
    */
   cancelText?: string;
 
@@ -55,28 +61,40 @@ export interface presentOptions {
    * The text to display on the done button.
    *
    * @default "Done"
+   * @since 1.0.0
    */
   doneText?: string;
 }
 
 export interface Images {
+  /**
+   * Array of all the picked images.
+   *
+   * @since 1.0.0
+   */
   images: Image[];
 }
 
 export interface Image {
   /**
    * The file path of the image.
+   *
+   * @since 1.0.0
    */
   path: string;
 
   /**
    * webPath returns a path that can be used to set the src attribute of an image for efficient
    * loading and rendering.
+   *
+   * @since 1.0.0
    */
   webPath: string;
 
   /**
    * The mime type of the image.
+   *
+   * @since 1.0.0
    */
   mimeType: string;
 }

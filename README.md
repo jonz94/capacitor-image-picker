@@ -51,11 +51,46 @@ allprojects {
 
 After modified `android/build.gradle`, make sure to run `Sync Project with Gradle Files` in Android Studio.
 
-
 ### Variables
 
 This plugin will use the following project variables (defined in your app's `variables.gradle` file):
 - `$tedImagePickerVersion` version of `com.github.jonz94:TedImagePicker` (default: `1.3.2.1`)
+
+## Configuration
+
+No configuration required for this plugin.
+
+## Usage
+
+```typescript
+import { ImagePicker } from '@jonz94/capacitor-image-picker';
+
+const pickSingleImage = async () => {
+  const { images } = await ImagePicker.present();
+
+  console.log(images[0]);
+}
+
+const pickMultipleImage = async () => {
+  const { images } = await ImagePicker.present({ limit: 10 });
+
+  console.log(images);
+}
+
+const pickWithCustomText = async () => {
+  const { images } = await ImagePicker.present({
+    limit: 10,
+    surpassLimitMessage: 'The limit is %d image(s).',
+    titleText: 'Pick a image',
+    albumsTitleText: 'Chose an album',
+    libraryTitleText: 'Click here to change library',
+    cancelText: 'Go Back',
+    doneText: 'OK',
+  });
+
+  console.log(images);
+}
+```
 
 ## API
 
@@ -89,31 +124,31 @@ present(options?: presentOptions | undefined) => Promise<Images>
 
 #### Images
 
-| Prop         | Type                 |
-| ------------ | -------------------- |
-| **`images`** | <code>Image[]</code> |
+| Prop         | Type                 | Description                     | Since |
+| ------------ | -------------------- | ------------------------------- | ----- |
+| **`images`** | <code>Image[]</code> | Array of all the picked images. | 1.0.0 |
 
 
 #### Image
 
-| Prop           | Type                | Description                                                                                                       |
-| -------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **`path`**     | <code>string</code> | The file path of the image.                                                                                       |
-| **`webPath`**  | <code>string</code> | webPath returns a path that can be used to set the src attribute of an image for efficient loading and rendering. |
-| **`mimeType`** | <code>string</code> | The mime type of the image.                                                                                       |
+| Prop           | Type                | Description                                                                                                       | Since |
+| -------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- | ----- |
+| **`path`**     | <code>string</code> | The file path of the image.                                                                                       | 1.0.0 |
+| **`webPath`**  | <code>string</code> | webPath returns a path that can be used to set the src attribute of an image for efficient loading and rendering. | 1.0.0 |
+| **`mimeType`** | <code>string</code> | The mime type of the image.                                                                                       | 1.0.0 |
 
 
 #### presentOptions
 
-| Prop                      | Type                | Description                                                                                                                                                                                                                   | Default                                         |
-| ------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| **`limit`**               | <code>number</code> | Maximum number of images the user will be able to choose. Note: If this is set to 1, upon selection of a single image.                                                                                                        | <code>1</code>                                  |
-| **`surpassLimitMessage`** | <code>string</code> | The message when user select more than maximum number of pictures. This message will not occur when `limit` is 1. Note: The message **MUST INCLUDE ONE AND ONLY ONE `%d`** as a placeholder for showing the value of `limit`. | <code>"You can only select %d image(s)."</code> |
-| **`titleText`**           | <code>string</code> | Android only: The title of the image picker.                                                                                                                                                                                  | <code>"Select Image"</code>                     |
-| **`libraryTitleText`**    | <code>string</code> | iOS only: The title of the library.                                                                                                                                                                                           | <code>"Library"</code>                          |
-| **`albumsTitleText`**     | <code>string</code> | iOS only: The title of the albums.                                                                                                                                                                                            | <code>"Albums"</code>                           |
-| **`cancelText`**          | <code>string</code> | iOS only: The text to display on the cancel button. Note: on Android, the cancel button is shown as icon-only back button with no text.                                                                                       | <code>"Cancel"</code>                           |
-| **`doneText`**            | <code>string</code> | The text to display on the done button.                                                                                                                                                                                       | <code>"Done"</code>                             |
+| Prop                      | Type                | Description                                                                                                                                                                                                                   | Default                                         | Since |
+| ------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----- |
+| **`limit`**               | <code>number</code> | Maximum number of images the user will be able to choose. Note: If this is set to 1, upon selection of a single image.                                                                                                        | <code>1</code>                                  | 1.0.0 |
+| **`surpassLimitMessage`** | <code>string</code> | The message when user select more than maximum number of pictures. This message will not occur when `limit` is 1. Note: The message **MUST INCLUDE ONE AND ONLY ONE `%d`** as a placeholder for showing the value of `limit`. | <code>"You can only select %d image(s)."</code> | 1.0.0 |
+| **`titleText`**           | <code>string</code> | Android only: The title of the image picker.                                                                                                                                                                                  | <code>"Select Image"</code>                     | 1.0.0 |
+| **`libraryTitleText`**    | <code>string</code> | iOS only: The title of the library.                                                                                                                                                                                           | <code>"Library"</code>                          | 1.0.0 |
+| **`albumsTitleText`**     | <code>string</code> | iOS only: The title of the albums.                                                                                                                                                                                            | <code>"Albums"</code>                           | 1.0.0 |
+| **`cancelText`**          | <code>string</code> | iOS only: The text to display on the cancel button. Note: on Android, the cancel button is shown as icon-only back button with no text.                                                                                       | <code>"Cancel"</code>                           | 1.0.0 |
+| **`doneText`**            | <code>string</code> | The text to display on the done button.                                                                                                                                                                                       | <code>"Done"</code>                             | 1.0.0 |
 
 </docgen-api>
 
