@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.1.1](https://github.com/jonz94/capacitor-image-picker/compare/v1.1.0...v1.1.1) (2022-10-18)
+
+### Features
+
+- improve comments and documentation ([4c6c3a0](https://github.com/jonz94/capacitor-image-picker/commit/4c6c3a001b8c3036d4e1be49c512e5ccc34ca12b))
+
 ## [1.1.0](https://github.com/jonz94/capacitor-image-picker/compare/v1.0.0...v1.1.0) (2022-10-16)
 
 ### Features
