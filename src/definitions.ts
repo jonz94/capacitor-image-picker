@@ -32,6 +32,14 @@ export interface presentOptions {
   titleText?: string;
 
   /**
+   * Android only: name of the all photos album.
+   *
+   * @default "All"
+   * @since 1.2.0
+   */
+  albumAllText?: string;
+
+  /**
    * iOS only: The title of the library.
    *
    * @default "Library"

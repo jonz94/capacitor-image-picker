@@ -36,6 +36,11 @@ public class ImagePickerPlugin extends Plugin {
             titleText = "Select Image";
         }
 
+        String albumAllText = call.getString("albumAllText");
+        if (albumAllText == null) {
+            albumAllText = "All";
+        }
+
         String doneText = call.getString("doneText");
         if (doneText == null) {
             doneText = "Done";
@@ -52,6 +57,7 @@ public class ImagePickerPlugin extends Plugin {
 
         builder.showCameraTile(false);
         builder.title(titleText);
+        builder.albumAllText(albumAllText);
         builder.buttonText(doneText);
         builder.max(limit, surpassLimitMessage);
 
