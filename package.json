@@ -5,7 +5,11 @@
   "keywords": [
     "capacitor",
     "plugin",
-    "native"
+    "native",
+    "image",
+    "picker",
+    "imagepicker",
+    "multiple"
   ],
   "bugs": {
     "url": "https://github.com/jonz94/capacitor-image-picker/issues"
