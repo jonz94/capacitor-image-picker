@@ -54,7 +54,7 @@ After modified `android/build.gradle`, make sure to run `Sync Project with Gradl
 ### Variables
 
 This plugin will use the following project variables (defined in your app's `variables.gradle` file):
-- `$tedImagePickerVersion` version of `com.github.jonz94:TedImagePicker` (default: `1.3.2.1`)
+- `$tedImagePickerVersion` version of `com.github.jonz94:TedImagePicker` (default: `1.3.2.2`)
 
 ## Configuration
 
