@@ -35,7 +35,7 @@ After modified `ios/App/Podfile`, make sure to run `pod update` command to sync 
 
 ## Android
 
-This plugin uses [a forked version](https://github.com/jonz94/TedIamgePicker) of [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) under the hood.
+This plugin uses [a forked version](https://github.com/jonz94/TedImagePicker) of [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) under the hood.
 
 In order to use this plugin, you need to manually modified `android/build.gradle` as following:
 
