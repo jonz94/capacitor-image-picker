@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/jonz94/capacitor-image-picker/compare/v1.1.1...v1.2.0) (2022-10-19)
+
+### Features
+
+- **android:** support custom album all text ([ad28569](https://github.com/jonz94/capacitor-image-picker/commit/ad285696cd73f23e12342552bbbc3d939518a27d))
+
 ### [1.1.1](https://github.com/jonz94/capacitor-image-picker/compare/v1.1.0...v1.1.1) (2022-10-18)
 
 ### Features
