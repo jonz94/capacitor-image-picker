@@ -76,6 +76,48 @@ The storage permission is for reading photo files.
 
 Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
 
+### FileProvider
+
+Additionally, the file provider's settings in `AndroidManifest.xml` need some tweaks as following:
+
+```diff
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.getcapacitor.myapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- ... -->
+
+-        <provider
+-            android:name="androidx.core.content.FileProvider"
+-            android:authorities="${applicationId}.fileprovider"
+-            android:exported="false"
+-            android:grantUriPermissions="true">
+-            <meta-data
+-                android:name="android.support.FILE_PROVIDER_PATHS"
+-                android:resource="@xml/file_paths"></meta-data>
+-        </provider>
++        <provider
++            android:name="androidx.core.content.FileProvider"
++            android:authorities="${applicationId}.fileprovider"
++            android:exported="false"
++            android:grantUriPermissions="true"
++            tools:replace="android:authorities">
++            <meta-data
++                android:name="android.support.FILE_PROVIDER_PATHS"
++                android:resource="@xml/file_paths"
++                tools:replace="android:resource" />
++        </provider>
+    </application>
+</manifest>
+```
 
 ### Variables
 
