@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.2.1](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.0...v1.2.1) (2022-10-20)
+
+### Bug Fixes
+
+- **android:** use fixed version of `com.github.jonz94:TedImagePicker` ([#4](https://github.com/jonz94/capacitor-image-picker/issues/4)) ([e4f9631](https://github.com/jonz94/capacitor-image-picker/commit/e4f963196efb245515747a68c6c008a093621b34))
+- **docs:** add missing documentation about android's data binding ([#3](https://github.com/jonz94/capacitor-image-picker/issues/3)) ([d1a32aa](https://github.com/jonz94/capacitor-image-picker/commit/d1a32aa5039854a7bd3888d30c8e029ebfacd31b))
+- **docs:** add missing documentation about android's FileProvider ([#2](https://github.com/jonz94/capacitor-image-picker/issues/2)) ([a4bcc8c](https://github.com/jonz94/capacitor-image-picker/commit/a4bcc8c28b8e91965058956eb97faeb185582ce4))
+- **docs:** add missing documentation about permissions ([#1](https://github.com/jonz94/capacitor-image-picker/issues/1)) ([aba4742](https://github.com/jonz94/capacitor-image-picker/commit/aba474294800372e41409028f596cb291e61fea9))
+
 ## [1.2.0](https://github.com/jonz94/capacitor-image-picker/compare/v1.1.1...v1.2.0) (2022-10-19)
 
 ### Features
