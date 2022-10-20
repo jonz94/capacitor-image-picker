@@ -50,7 +50,9 @@ Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configura
 
 This plugin uses [a forked version](https://github.com/jonz94/TedImagePicker) of [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) under the hood.
 
-In order to use this plugin, you need to manually modified `android/build.gradle` as following:
+#### Setup [JitPack](https://jitpack.io) Repository
+
+Add following line to your `android/build.gradle`:
 
 ```diff
 allprojects {
@@ -62,7 +64,28 @@ allprojects {
 }
 ```
 
-After modified `android/build.gradle`, make sure to run `Sync Project with Gradle Files` in Android Studio.
+#### Enable Data Binding
+
+Add following lines to your `android/app/build.gradle`:
+
+```diff
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        // ...
+    }
+    buildTypes {
+        // ...
+    }
++    dataBinding {
++        enabled true
++    }
+}
+```
+
+#### Sync Project
+
+After modified `android/build.gradle` and `android/app/build.gradle`, make sure to run `Sync Project with Gradle Files` in Android Studio.
 
 ### Permissions
 
