@@ -19,6 +19,8 @@ npx cap sync
 
 ## iOS
 
+### Native Dependencies Setup
+
 This plugin uses [a forked version](https://github.com/jonz94/YPImagePicker) of [YPImagePicker](https://github.com/Yummypets/YPImagePicker) under the hood.
 
 In order to use this plugin, you need to manually modified `ios/App/Podfile` as following:
@@ -33,7 +35,18 @@ end
 
 After modified `ios/App/Podfile`, make sure to run `pod update` command to sync up the iOS project.
 
+### Permissions
+
+iOS requires the following usage description be added and filled out for your app in `Info.plist`:
+
+- `NSPhotoLibraryUsageDescription` (`Privacy - Photo Library Usage Description`)
+
+Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode.
+
+
 ## Android
+
+### Native Dependencies Setup
 
 This plugin uses [a forked version](https://github.com/jonz94/TedImagePicker) of [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) under the hood.
 
@@ -50,6 +63,19 @@ allprojects {
 ```
 
 After modified `android/build.gradle`, make sure to run `Sync Project with Gradle Files` in Android Studio.
+
+### Permissions
+
+Android requires the following permissions be added to your `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
+
+The storage permission is for reading photo files.
+
+Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
+
 
 ### Variables
 
