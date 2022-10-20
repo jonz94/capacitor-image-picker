@@ -142,11 +142,6 @@ Additionally, the file provider's settings in `AndroidManifest.xml` need some tw
 </manifest>
 ```
 
-### Variables
-
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
-- `$tedImagePickerVersion` version of `com.github.jonz94:TedImagePicker` (default: `1.3.2.2`)
-
 ## Configuration
 
 No configuration required for this plugin.
