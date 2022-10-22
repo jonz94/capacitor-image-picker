@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.2.2](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.1...v1.2.2) (2022-10-22)
+
+### Bug Fixes
+
+- **android:** remove the requirement to modify file provider's settings ([#5](https://github.com/jonz94/capacitor-image-picker/issues/5)) ([6719ac3](https://github.com/jonz94/capacitor-image-picker/commit/6719ac3db8628c6a9d1c07eef8bb62eb06245901))
+
 ### [1.2.1](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.0...v1.2.1) (2022-10-20)
 
 ### Bug Fixes
