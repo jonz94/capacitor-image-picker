@@ -92,7 +92,7 @@ After modified `android/build.gradle` and `android/app/build.gradle`, make sure 
 Android requires the following permissions be added to your `AndroidManifest.xml`:
 
 ```xml
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
 The storage permission is for reading photo files.
