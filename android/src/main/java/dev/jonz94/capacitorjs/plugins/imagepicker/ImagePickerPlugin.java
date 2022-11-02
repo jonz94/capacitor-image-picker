@@ -27,7 +27,7 @@ public class ImagePickerPlugin extends Plugin {
 
         String surpassLimitMessage = call.getString("surpassLimitMessage");
         if (surpassLimitMessage == null) {
-            surpassLimitMessage = "You can only select %d image(s)";
+            surpassLimitMessage = "You can only select %d images.";
         }
         surpassLimitMessage = String.format(surpassLimitMessage, limit);
 

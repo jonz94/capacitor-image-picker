@@ -13,7 +13,7 @@ public class ImagePickerPlugin: CAPPlugin {
 
     @objc func present(_ call: CAPPluginCall) {
         let limit = call.getInt("limit") ?? 1
-        let surpassLimitMessage = call.getString("surpassLimitMessage", "You can only select %d image(s).")
+        let surpassLimitMessage = call.getString("surpassLimitMessage", "You can only select %d images.")
         let libraryTitleText = call.getString("libraryTitleText", "Library")
         let albumsTitleText = call.getString("albumsTitleText", "Albums")
         let cancelText = call.getString("cancelText", "Cancel")

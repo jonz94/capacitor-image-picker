@@ -18,7 +18,7 @@ export interface presentOptions {
    *
    * Note: The message **MUST INCLUDE ONE AND ONLY ONE `%d`** as a placeholder for showing the value of `limit`.
    *
-   * @default "You can only select %d image(s)."
+   * @default "You can only select %d images."
    * @since 1.0.0
    */
   surpassLimitMessage?: string;
