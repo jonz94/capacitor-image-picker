@@ -1,6 +1,6 @@
 {
   "name": "@jonz94/capacitor-image-picker",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Capacitor plugin for multiple image selection",
   "keywords": [
     "capacitor",

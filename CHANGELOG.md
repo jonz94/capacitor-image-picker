@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.2.4](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.3...v1.2.4) (2022-11-02)
+
+### Bug Fixes
+
+- correct default value of `surpassLimitMessage` ([#8](https://github.com/jonz94/capacitor-image-picker/issues/8)) ([33bbec4](https://github.com/jonz94/capacitor-image-picker/commit/33bbec40d0fc33f370d97aecf6503717d713830c))
+
 ### [1.2.3](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.2...v1.2.3) (2022-10-28)
 
 ### Bug Fixes
