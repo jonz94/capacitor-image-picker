@@ -111,19 +111,23 @@ import { ImagePicker } from '@jonz94/capacitor-image-picker';
 const pickSingleImage = async () => {
   const { images } = await ImagePicker.present();
 
-  console.log(images[0]);
+  // console.log(images[0]);
+
+  return images[0];
 }
 
-const pickMultipleImage = async () => {
+const pickMultipleImages = async () => {
   const { images } = await ImagePicker.present({ limit: 10 });
 
-  console.log(images);
+  // console.log(images);
+
+  return images;
 }
 
-const pickWithCustomText = async () => {
+const pickMultipleImagesWithCustomText = async () => {
   const { images } = await ImagePicker.present({
     limit: 10,
-    surpassLimitMessage: 'The limit is %d images.',
+    surpassLimitMessage: 'You cannot select more than %d images.',
     titleText: 'Pick a image',
     albumsTitleText: 'Chose an album',
     libraryTitleText: 'Click here to change library',
@@ -131,7 +135,9 @@ const pickWithCustomText = async () => {
     doneText: 'OK',
   });
 
-  console.log(images);
+  // console.log(images);
+
+  return images;
 }
 ```
 
