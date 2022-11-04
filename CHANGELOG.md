@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-- **android:** resolve permission settings confliction ([#7](https://github.com/jonz94/capacitor-image-picker/issues/7)) ([aa62aa8](https://github.com/jonz94/capacitor-image-picker/commit/aa62aa88f0de9fc67be1a8a301b432dd8750739b)), closes ([#6](https://github.com/jonz94/capacitor-image-picker/issues/6))
+- **android:** resolve permission settings confliction ([#7](https://github.com/jonz94/capacitor-image-picker/issues/7)) ([aa62aa8](https://github.com/jonz94/capacitor-image-picker/commit/aa62aa88f0de9fc67be1a8a301b432dd8750739b)), closes [#6](https://github.com/jonz94/capacitor-image-picker/issues/6)
 
 ### [1.2.2](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.1...v1.2.2) (2022-10-22)
 
