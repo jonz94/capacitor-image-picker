@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.2.5](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.4...v1.2.5) (2022-12-07)
+
+### Bug Fixes
+
+- the lowercase `presentOptions` is a typo, please use `PresentOptions` instead. ([#9](https://github.com/jonz94/capacitor-image-picker/issues/9)) ([8249fcf](https://github.com/jonz94/capacitor-image-picker/commit/8249fcffb17083e2c48b14840b5d717ac4468bb1))
+
 ### [1.2.4](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.3...v1.2.4) (2022-11-02)
 
 ### Bug Fixes
