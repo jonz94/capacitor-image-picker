@@ -157,12 +157,12 @@ const pickMultipleImagesWithCustomText = async () => {
 ### present(...)
 
 ```typescript
-present(options?: presentOptions | undefined) => Promise<Images>
+present(options?: PresentOptions | undefined) => Promise<Images>
 ```
 
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
-| **`options`** | <code><a href="#presentoptions">presentOptions</a></code> |
+| **`options`** | <code><a href="#presentoptions">PresentOptions</a></code> |
 
 **Returns:** <code>Promise&lt;<a href="#images">Images</a>&gt;</code>
 
@@ -188,7 +188,7 @@ present(options?: presentOptions | undefined) => Promise<Images>
 | **`mimeType`** | <code>string</code> | The mime type of the image.                                                                                       | 1.0.0 |
 
 
-#### presentOptions
+#### PresentOptions
 
 | Prop                      | Type                | Description                                                                                                                                                                                                                   | Default                                       | Since |
 | ------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----- |

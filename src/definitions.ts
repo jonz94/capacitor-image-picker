@@ -1,8 +1,8 @@
 export interface ImagePickerPlugin {
-  present(options?: presentOptions): Promise<Images>;
+  present(options?: PresentOptions): Promise<Images>;
 }
 
-export interface presentOptions {
+export interface PresentOptions {
   /**
    * Maximum number of images the user will be able to choose.
    *
@@ -106,3 +106,8 @@ export interface Image {
    */
   mimeType: string;
 }
+
+/**
+ * @deprecated the lowercase `presentOptions` is a typo, please use `PresentOptions` instead.
+ */
+export type presentOptions = PresentOptions;
