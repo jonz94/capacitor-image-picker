@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0-beta.0](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.5...v2.0.0-beta.0) (2023-08-23)
+
+### ⚠ BREAKING CHANGES
+
+- upgrade to Capacitor 5
+
+### Features
+
+- upgrade to Capacitor 5 ([c677463](https://github.com/jonz94/capacitor-image-picker/commit/c67746392a7e642036960d440663ad00eb63949f))
+
+### Bug Fixes
+
+- **android:** resolve permission issue for android 13 ([994a7e0](https://github.com/jonz94/capacitor-image-picker/commit/994a7e027efe57a3ba83079533912bde3924a8b3))
+
 ### [1.2.5](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.4...v1.2.5) (2022-12-07)
 
 ### Bug Fixes
