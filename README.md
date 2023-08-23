@@ -44,7 +44,6 @@ iOS requires the following usage description be added and filled out for your ap
 
 Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode.
 
-
 ## Android
 
 ### Native Dependencies Setup
@@ -90,13 +89,14 @@ After modified `android/build.gradle` and `android/app/build.gradle`, make sure 
 
 ### Permissions
 
-Android requires the following permissions be added to your `AndroidManifest.xml`:
+This plugin requires the following permissions be added to your `AndroidManifest.xml`:
 
 ```xml
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
 ```
 
-The storage permission is for reading photo files.
+The storage permissions are for reading photo files.
 
 Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
 

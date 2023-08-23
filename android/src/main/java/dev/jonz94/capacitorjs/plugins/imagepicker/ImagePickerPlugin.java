@@ -1,25 +1,52 @@
 package dev.jonz94.capacitorjs.plugins.imagepicker;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.net.Uri;
+import android.os.Build;
 import com.getcapacitor.FileUtils;
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Logger;
+import com.getcapacitor.PermissionState;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import com.getcapacitor.annotation.Permission;
+import com.getcapacitor.annotation.PermissionCallback;
 import gun0912.tedimagepicker.builder.TedImagePicker;
 import gun0912.tedimagepicker.builder.TedImagePicker.Builder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@CapacitorPlugin(name = "ImagePicker")
+@SuppressLint("InlinedApi")
+@CapacitorPlugin(
+    name = "ImagePicker",
+    permissions = {
+        @Permission(strings = { Manifest.permission.READ_EXTERNAL_STORAGE }, alias = ImagePickerPlugin.READ_EXTERNAL_STORAGE),
+        @Permission(strings = { Manifest.permission.READ_MEDIA_IMAGES }, alias = ImagePickerPlugin.READ_MEDIA_IMAGES)
+    }
+)
 public class ImagePickerPlugin extends Plugin {
+
+    static final String READ_EXTERNAL_STORAGE = "readExternalStorage";
+    static final String READ_MEDIA_IMAGES = "readMediaImages";
+
+    private static final String PERMISSION_DENIED_ERROR = "Unable to open image picker, user denied permission request";
 
     @PluginMethod
     public void present(PluginCall call) {
+        if (!isPermissionGranted()) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+                requestPermissionForAlias(READ_EXTERNAL_STORAGE, call, "permissionCallback");
+            } else {
+                requestPermissionForAlias(READ_MEDIA_IMAGES, call, "permissionCallback");
+            }
+            return;
+        }
+
         Integer limit = call.getInt("limit");
         if (limit == null) {
             limit = 1;
@@ -94,5 +121,27 @@ public class ImagePickerPlugin extends Plugin {
             return "";
         }
         return bridge.getContext().getContentResolver().getType(uri);
+    }
+
+    @PermissionCallback
+    private void permissionCallback(PluginCall call) {
+        if (!isPermissionGranted()) {
+            call.reject(PERMISSION_DENIED_ERROR);
+            return;
+        }
+
+        String methodName = call.getMethodName();
+
+        if (methodName.equals("present")) {
+            present(call);
+        }
+    }
+
+    private boolean isPermissionGranted() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return getPermissionState(READ_EXTERNAL_STORAGE) == PermissionState.GRANTED;
+        }
+
+        return getPermissionState(READ_MEDIA_IMAGES) == PermissionState.GRANTED;
     }
 }
