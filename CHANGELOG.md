@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.5...v2.0.0) (2023-09-20)
+
+### ⚠ BREAKING CHANGES
+
+- upgrade to Capacitor 5 (#11)
+
+### Features
+
+- upgrade to Capacitor 5 ([#11](https://github.com/jonz94/capacitor-image-picker/issues/11)) ([8e316f7](https://github.com/jonz94/capacitor-image-picker/commit/8e316f742e37e8147f3677ac3d68d511768774e9))
+
 ## [2.0.0-beta.0](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.5...v2.0.0-beta.0) (2023-08-23)
 
 ### ⚠ BREAKING CHANGES
