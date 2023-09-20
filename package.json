@@ -1,6 +1,6 @@
 {
   "name": "@jonz94/capacitor-image-picker",
-  "version": "1.2.5",
+  "version": "2.0.0-beta.0",
   "description": "Capacitor plugin for multiple image selection",
   "keywords": [
     "capacitor",
@@ -56,25 +56,25 @@
     "extends": "@ionic/eslint-config/recommended"
   },
   "devDependencies": {
-    "@capacitor/android": "^4.7.0",
-    "@capacitor/core": "^4.7.0",
+    "@capacitor/android": "^5.3.0",
+    "@capacitor/core": "^5.3.0",
     "@capacitor/docgen": "^0.2.1",
-    "@capacitor/ios": "^4.7.0",
+    "@capacitor/ios": "^5.3.0",
     "@ionic/eslint-config": "^0.3.0",
-    "@ionic/prettier-config": "^2.0.0",
+    "@ionic/prettier-config": "^4.0.0",
     "@ionic/swiftlint-config": "^1.1.2",
-    "commit-and-tag-version": "^11.1.0",
+    "commit-and-tag-version": "^11.2.3",
     "eslint": "^7.32.0",
-    "prettier": "^2.8.4",
-    "prettier-plugin-java": "^1.6.2",
-    "prettier-plugin-packagejson": "^2.4.3",
-    "rimraf": "^4.1.2",
+    "prettier": "^3.0.2",
+    "prettier-plugin-java": "^2.3.0",
+    "prettier-plugin-packagejson": "^2.4.5",
+    "rimraf": "^5.0.1",
     "rollup": "^2.79.1",
-    "swiftlint": "^1.0.1",
+    "swiftlint": "^1.0.2",
     "typescript": "~4.1.6"
   },
   "peerDependencies": {
-    "@capacitor/core": "^4.0.0"
+    "@capacitor/core": "^5.0.0"
   },
   "publishConfig": {
     "access": "public"
