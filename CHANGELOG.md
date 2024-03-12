@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1](https://github.com/jonz94/capacitor-image-picker/compare/v2.0.0...v2.0.1) (2024-03-12)
+
+### Bug Fixes
+
+- **ios:** resolve xcode 15 issue ([#14](https://github.com/jonz94/capacitor-image-picker/issues/14)) ([1a7829d](https://github.com/jonz94/capacitor-image-picker/commit/1a7829d3878481822e1973844c4c3c3d7aeaf8a4))
+
 ## [2.0.0](https://github.com/jonz94/capacitor-image-picker/compare/v1.2.5...v2.0.0) (2023-09-20)
 
 ### ⚠ BREAKING CHANGES
