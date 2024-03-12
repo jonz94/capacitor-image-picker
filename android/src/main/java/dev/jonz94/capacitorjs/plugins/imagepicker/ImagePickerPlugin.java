@@ -25,8 +25,11 @@ import java.util.List;
 @CapacitorPlugin(
     name = "ImagePicker",
     permissions = {
-        @Permission(strings = { Manifest.permission.READ_EXTERNAL_STORAGE }, alias = ImagePickerPlugin.READ_EXTERNAL_STORAGE),
-        @Permission(strings = { Manifest.permission.READ_MEDIA_IMAGES }, alias = ImagePickerPlugin.READ_MEDIA_IMAGES)
+        @Permission(
+            strings = { Manifest.permission.READ_EXTERNAL_STORAGE },
+            alias = ImagePickerPlugin.READ_EXTERNAL_STORAGE
+        ),
+        @Permission(strings = { Manifest.permission.READ_MEDIA_IMAGES }, alias = ImagePickerPlugin.READ_MEDIA_IMAGES),
     }
 )
 public class ImagePickerPlugin extends Plugin {
@@ -73,8 +76,7 @@ public class ImagePickerPlugin extends Plugin {
             doneText = "Done";
         }
 
-        Builder builder = TedImagePicker
-            .with(getContext())
+        Builder builder = TedImagePicker.with(getContext())
             .errorListener(error -> {
                 Logger.error(error.toString());
             })
