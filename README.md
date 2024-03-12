@@ -30,7 +30,7 @@ In order to use this plugin, you need to manually modified `ios/App/Podfile` as 
 target 'App' do
   capacitor_pods
   # Add your Pods here
-+  pod 'YPImagePicker', :git => 'https://github.com/jonz94/YPImagePicker.git', :tag => '5.2.1.0'
++  pod 'YPImagePicker', :git => 'https://github.com/jonz94/YPImagePicker.git', :tag => '5.2.2.0'
 end
 ```
 
