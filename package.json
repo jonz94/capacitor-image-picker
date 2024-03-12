@@ -51,7 +51,6 @@
     "verify:web": "npm run build",
     "watch": "tsc --watch"
   },
-  "prettier": "@ionic/prettier-config",
   "eslintConfig": {
     "extends": "@ionic/eslint-config/recommended"
   },
