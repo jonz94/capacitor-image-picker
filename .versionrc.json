@@ -3,5 +3,8 @@
   "releaseCommitMessageFormat": "release: v{{currentTag}}",
   "scripts": {
     "postchangelog": "prettier --write CHANGELOG.md"
+  },
+  "writerOpts": {
+    "commitsSort": false
   }
 }
