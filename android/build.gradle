@@ -58,6 +58,6 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
 
-    implementation 'com.github.jonz94:TedImagePicker:1.5.0.2'
+    implementation 'com.github.jonz94:TedImagePicker:1.5.0.3'
     implementation 'io.github.ParkSangGwon:tedonactivityresult:1.1.4'
 }
