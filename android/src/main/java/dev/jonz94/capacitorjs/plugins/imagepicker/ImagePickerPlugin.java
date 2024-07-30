@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import com.getcapacitor.FileUtils;
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
@@ -30,22 +31,33 @@ import java.util.List;
             alias = ImagePickerPlugin.READ_EXTERNAL_STORAGE
         ),
         @Permission(strings = { Manifest.permission.READ_MEDIA_IMAGES }, alias = ImagePickerPlugin.READ_MEDIA_IMAGES),
+        @Permission(
+            strings = { Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED },
+            alias = ImagePickerPlugin.READ_MEDIA_VISUAL_USER_SELECTED
+        ),
     }
 )
 public class ImagePickerPlugin extends Plugin {
 
     static final String READ_EXTERNAL_STORAGE = "readExternalStorage";
     static final String READ_MEDIA_IMAGES = "readMediaImages";
+    static final String READ_MEDIA_VISUAL_USER_SELECTED = "readMediaVisualUserSelected";
 
     private static final String PERMISSION_DENIED_ERROR = "Unable to open image picker, user denied permission request";
 
     @PluginMethod
     public void present(PluginCall call) {
-        if (!isPermissionGranted()) {
+        if (permissionIsNotGranted()) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
                 requestPermissionForAlias(READ_EXTERNAL_STORAGE, call, "permissionCallback");
-            } else {
+            } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
                 requestPermissionForAlias(READ_MEDIA_IMAGES, call, "permissionCallback");
+            } else {
+                requestPermissionForAliases(
+                    new String[] { READ_MEDIA_IMAGES, READ_MEDIA_VISUAL_USER_SELECTED },
+                    call,
+                    "permissionCallback"
+                );
             }
             return;
         }
@@ -127,7 +139,7 @@ public class ImagePickerPlugin extends Plugin {
 
     @PermissionCallback
     private void permissionCallback(PluginCall call) {
-        if (!isPermissionGranted()) {
+        if (permissionIsNotGranted()) {
             call.reject(PERMISSION_DENIED_ERROR);
             return;
         }
@@ -139,11 +151,18 @@ public class ImagePickerPlugin extends Plugin {
         }
     }
 
-    private boolean isPermissionGranted() {
+    private boolean permissionIsNotGranted() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-            return getPermissionState(READ_EXTERNAL_STORAGE) == PermissionState.GRANTED;
+            return getPermissionState(READ_EXTERNAL_STORAGE) != PermissionState.GRANTED;
         }
 
-        return getPermissionState(READ_MEDIA_IMAGES) == PermissionState.GRANTED;
+        Log.i("p", "permissionIsNotGranted: " + getPermissionState(READ_MEDIA_IMAGES));
+        Log.i("p", "permissionIsNotGranted: " + getPermissionState(READ_MEDIA_VISUAL_USER_SELECTED));
+        Log.i("p", "permissionIsNotGranted: " + PermissionState.GRANTED);
+
+        return (
+            getPermissionState(READ_MEDIA_IMAGES) != PermissionState.GRANTED &&
+            getPermissionState(READ_MEDIA_VISUAL_USER_SELECTED) != PermissionState.GRANTED
+        );
     }
 }

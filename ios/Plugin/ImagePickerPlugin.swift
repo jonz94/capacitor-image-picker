@@ -68,8 +68,6 @@ public class ImagePickerPlugin: CAPPlugin {
                     image["mimeType"] = self.getMimeTypeFromURL(fileURL)
                     images.append(image)
                 }
-
-                break
             default:
                 break
             }
