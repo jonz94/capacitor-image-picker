@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [3.0.2](https://github.com/jonz94/capacitor-image-picker/compare/v3.0.1...v3.0.2) (2024-11-13)
 
+### Bug Fixes
+
+- update all development dependencies ([3e8c265](https://github.com/jonz94/capacitor-image-picker/commit/3e8c2652b48057facd4e1195e007744303825179))
+
 ## [3.0.1](https://github.com/jonz94/capacitor-image-picker/compare/v3.0.0...v3.0.1) (2024-07-15)
 
 ### Bug Fixes
