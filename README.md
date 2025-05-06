@@ -104,6 +104,10 @@ Read about [Setting Permissions](https://capacitorjs.com/docs/android/configurat
 
 No configuration required for this plugin.
 
+## Demo
+
+A working example can be found here: [jonz94/capacitor-image-picker-demo](https://github.com/jonz94/capacitor-image-picker-demo)
+
 ## Usage
 
 ```typescript
